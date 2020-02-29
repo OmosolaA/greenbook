@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>GreenBook</title>
+    <script src="https://kit.fontawesome.com/f45884ea5a.js" crossorigin="anonymous"></script>
     <style>
       html,
       body {
@@ -28,13 +29,12 @@
         height: 90vh;
         width: 100vw;
         padding: 0;
-        background: red;
       }
 
       #footer {
         height: 10vh;
         width: 100vw;
-        padding: 10px 10vw;
+        padding: 10px 5vw;
         background: black;
         color: white;
         display: flex;
@@ -43,7 +43,7 @@
       }
 
       #footer a {
-        width: 80%;
+        width: 90%;
         font-size: 1.5em;
         color: white;
         text-decoration: none;
@@ -59,12 +59,12 @@
 
   <body>
     <div id="container">
-      <div id="map">
-
-      </div>
+      <iframe id="map" frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJfc3I0Py3t4kRodR_MzvI_ho&key=AIzaSyA5bYUvNOQWjOMe39cAAwbyq04ePajnsj4"
+        allowfullscreen></iframe>
       <div id="footer">
         <a href="/directory.html">
-          Search
+          <i class="fas fa-search"></i> Search Local Efforts
         </a>
       </div>
     </div>
