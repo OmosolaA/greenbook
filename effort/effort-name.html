@@ -15,7 +15,7 @@
         overflow: hidden;
         background: white;
         color: black;
-        overflow-x: hidden;
+        overflow: hidden;
       }
 
       #container {
@@ -26,7 +26,7 @@
 
       #big-division {
         width: 100vw;
-        height: 82.5vh;
+        height: 70vh;
         padding: 0 10vw;
         overflow-y: scroll;
       }
@@ -37,7 +37,7 @@
 
       #header-ps {
         max-height: 25vh;
-        overflow-y: scroll;
+        overflow-y: hidden;
       }
 
       #header p {
@@ -45,26 +45,26 @@
       }
 
       #map-view h2 {
-        margin-bottom: 10px;
+        margin: 10px 0;
       }
 
       #map {
         width: 80%;
-        height: 35vh;
+        height: 25vh;
       }
 
       #threed-container {
-        height: 85vh;
+        height: 70vh;
         width: 100vw;
       }
 
       #footer {
         width: 100vw;
         height: 15vh;
-        padding: 10px 10vw;
+        padding: 0;
         display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
+        flex-direction: row;
+        justify-content: center;
         background: black;
         color: white;
         text-align: center;
@@ -82,6 +82,7 @@
         height: 30px;
         border-radius: 20px;
         margin-bottom: 10px;
+        margin: 5px auto;
       }
 
       .switch-wrap>input {
@@ -226,7 +227,7 @@
           renderer = new THREE.WebGLRenderer({ antialias: true })
           renderer.setPixelRatio(window.devicePixelRatio)
           renderer.setSize(window.innerWidth, window.innerHeight)
-          document.getElementById('container').appendChild(renderer.domElement)
+          document.getElementById('threed-container').appendChild(renderer.domElement)
           window.addEventListener('resize', onWindowResize, false)
         }
 
@@ -249,7 +250,7 @@
               document.getElementById('big-division').style.display = 'none'
               document.getElementById('threed-container').style.display = ''
               if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
-                alert('We\'re about to ask for permission to read your device\'s orientation! Stand directly in front of the QR code and point your phone at it.')
+                alert('We\'re about to ask for permission to read your device\'s orientation!')
                 const permission = await DeviceOrientationEvent.requestPermission()
                 if (permission === 'granted') {
                   //document.getElementById('big-division').style.display = 'none'
@@ -310,13 +311,13 @@
         </div>
       </div>
       <div id="footer">
-        <div style="display: flex; flex-direction: row; justify-content: center;">
+        <div style="display: flex; flex-direction: column; justify-content: center;">
           <label class="switch-wrap">
             <input id="switch" type="checkbox" />
             <div class="switch"></div>
           </label>
+          <span>2D Map</span>
         </div>
-        <span>2D Map</span>
       </div>
     </div>
   </body>
