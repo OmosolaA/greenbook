@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Effort Name</title>
     <style>
       html,
@@ -25,7 +25,7 @@
 
       #big-division {
         width: 100vw;
-        height: 85vh;
+        height: 82.5vh;
         padding: 20px 10vw 0 10vw;
         overflow-y: scroll;
       }
@@ -50,6 +50,11 @@
       #map {
         width: 80%;
         height: 35vh;
+      }
+
+      #threed-container {
+        height: 85vh;
+        width: 100vw;
       }
 
       #footer {
@@ -153,7 +158,6 @@
         let scene
         let camera
         let pivot
-        const startBtn = document.getElementById('startbtn')
         const init = () => {
           camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1100)
           controls = new THREE.DeviceOrientationControls(camera)
@@ -238,15 +242,17 @@
         }
 
         document.getElementById('switch')
-          .addEventListener('change', e => {
+          .addEventListener('change', async e => {
             if (e.target.checked) {
               alert('checked')
+              document.getElementById('big-division').style.display = 'none'
+              document.getElementById('threed-container').style.display = ''
               if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
                 alert('We\'re about to ask for permission to read your device\'s orientation! Stand directly in front of the QR code and point your phone at it.')
                 const permission = await DeviceOrientationEvent.requestPermission()
                 if (permission === 'granted') {
-                  startBtn.remove()
-                  document.getElementById('preface-text').remove()
+                  //document.getElementById('big-division').style.display = 'none'
+                  //document.getElementById('threed-container').style.display = ''
                   init()
                   animate()
                 } else {
@@ -257,6 +263,8 @@
               }
             } else {
               alert('not checked')
+              document.getElementById('threed-container').style.display = 'none'
+              document.getElementById('big-division').style.display = ''
             }
           })
       })
@@ -265,6 +273,9 @@
 
   <body>
     <div id="container">
+      <div id="threed-container" style="display: none;">
+        <h1>hih</h1>
+      </div>
       <div id="big-division">
         <div id="header">
           <h1>
