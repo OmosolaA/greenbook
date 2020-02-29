@@ -26,7 +26,7 @@
 
       #big-division {
         width: 100vw;
-        height: 70vh;
+        height: 75vh;
         padding: 0 10vw;
         overflow-y: scroll;
       }
@@ -226,7 +226,7 @@
           })
           renderer = new THREE.WebGLRenderer({ antialias: true })
           renderer.setPixelRatio(window.devicePixelRatio)
-          renderer.setSize(window.innerWidth, window.innerHeight)
+          renderer.setSize(window.innerWidth, window.innerHeight * 0.75)
           document.getElementById('threed-container').appendChild(renderer.domElement)
           window.addEventListener('resize', onWindowResize, false)
         }
@@ -240,7 +240,7 @@
         const onWindowResize = () => {
           camera.aspect = window.innerWidth / window.innerHeight
           camera.updateProjectionMatrix()
-          renderer.setSize(window.innerWidth, window.innerHeight)
+          renderer.setSize(window.innerWidth, window.innerHeight * 0.75)
         }
 
         document.getElementById('switch')
