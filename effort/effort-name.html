@@ -117,9 +117,9 @@
       }
 
     </style>
-    <script src="/js/three.js"></script>
-    <script src="/js/three.doc.js"></script>
-    <script src="/js/webgl.js"></script>
+    <script src="js/three.js"></script>
+    <script src="js/three.doc.js"></script>
+    <script src="js/webgl.js"></script>
     <script>
       const addText = (text, font, scene, opts) => {
         const textGeometry = new THREE.TextGeometry(text, {
@@ -180,7 +180,7 @@
           const helper = new THREE.Mesh(helperGeometry, helperMaterial)
           scene.add(helper)
           const fontLoader = new THREE.FontLoader();
-          fontLoader.load('/fonts/helvetiker_regular.typeface.json', font => {
+          fontLoader.load('fonts/helvetiker_regular.typeface.json', font => {
             addText('Look around\nfor landmarks', font, scene, {
               posX: -100,
               posZ: -500,
@@ -246,7 +246,6 @@
         document.getElementById('switch')
           .addEventListener('change', async e => {
             if (e.target.checked) {
-              alert('checked')
               document.getElementById('big-division').style.display = 'none'
               document.getElementById('threed-container').style.display = ''
               if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
@@ -264,7 +263,6 @@
                 alert('Your device won\'t let us read its orientation, so the 3D map won\'t work.')
               }
             } else {
-              alert('not checked')
               document.getElementById('threed-container').style.display = 'none'
               document.getElementById('big-division').style.display = ''
             }
